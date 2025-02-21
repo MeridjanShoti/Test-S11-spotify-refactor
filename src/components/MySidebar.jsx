@@ -64,7 +64,8 @@ const MySidebar = () => {
                           type="text"
                           placeholder="Search"
                           aria-label="Search"
-                          onChange={(e) => dispatch(setSearchAction(e.target))}
+                          onChange={(e) => dispatch(setSearchAction(e.target.value))}
+                          value={search}
                         />
                         <div className="input-group-append">
                           <Button type="submit" className="btn-outline-secondary btn-sm h-100">
