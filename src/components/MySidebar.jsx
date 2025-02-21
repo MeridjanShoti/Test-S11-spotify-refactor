@@ -8,21 +8,22 @@ import { setSearchAction, setSearchedResultsAction } from "../redux/actions";
 const MySidebar = () => {
   const dispatch = useDispatch();
   const search = useSelector((state) => state.search.content);
-  const handleSubmit = () => {
-    async () => {
-      try {
-        let response = await fetch("https://striveschool-api.herokuapp.com/api/deezer/search?q=" + search);
-        if (response.ok) {
-          let { data } = await response.json();
-          dispatch(setSearchedResultsAction(data));
-        } else {
-          throw new Error("Error in fetching songs");
-        }
-      } catch (err) {
-        console.log("error", err);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      let response = await fetch("https://striveschool-api.herokuapp.com/api/deezer/search?q=" + search);
+      if (response.ok) {
+        let { data } = await response.json();
+        dispatch(setSearchedResultsAction(data));
+      } else {
+        throw new Error("Error in fetching songs");
       }
-    };
+    } catch (err) {
+      console.log("error", err);
+    }
   };
+
   return (
     <>
       <aside>
