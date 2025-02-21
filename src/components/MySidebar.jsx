@@ -3,7 +3,7 @@ import logoBig from "../assets/logoBig.png";
 import { BookFill, HouseDoorFill } from "react-bootstrap-icons";
 import { Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { setSearchAction } from "../redux/actions";
+import { setSearchAction, setSearchedResultsAction } from "../redux/actions";
 import { useState } from "react";
 
 const MySidebar = () => {
@@ -15,6 +15,7 @@ const MySidebar = () => {
         let response = await fetch("https://striveschool-api.herokuapp.com/api/deezer/search?q=" + search);
         if (response.ok) {
           let { data } = await response.json();
+          dispatch(setSearchedResultsAction(data));
         } else {
           throw new Error("Error in fetching songs");
         }
