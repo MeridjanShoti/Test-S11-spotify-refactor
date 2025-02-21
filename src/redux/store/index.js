@@ -1,5 +1,8 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-const mainReducer = combineReducers({});
+import searcReducer from "../reducers/searchReducer";
+const mainReducer = combineReducers({
+  search: searcReducer,
+});
 const store = configureStore({
   reducer: mainReducer,
 });
