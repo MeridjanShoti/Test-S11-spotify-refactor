@@ -40,6 +40,7 @@ const ArtistSongs = (props) => {
               </Col>
               <Col xs={2}>
                 <span
+                  className="text-white"
                   onClick={() => {
                     if (!favouriteSongs.find((favouriteSong) => favouriteSong.id === song.id)) {
                       dispatch(addToFavourites(song));
