@@ -2,6 +2,7 @@ import { Col, Row, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { addToFavourites, removeFromFavourites, selectSong } from "../redux/actions";
 import MyPlayer from "./MyPlayer";
+import { Heart, HeartFill } from "react-bootstrap-icons";
 
 const MyFavourites = () => {
   const favouriteSongs = useSelector((state) => state.favourites.content);
@@ -9,14 +10,14 @@ const MyFavourites = () => {
   return (
     <>
       <h1 className="text-center text-white">PREFERITI</h1>
-      <Row>
+      <Row className="justify-content-center">
         {favouriteSongs ? (
           favouriteSongs.map((song) => (
-            <Col className="text-center" key={song.id}>
+            <Col xs={4} md={3} lg={2} className="text-center" key={song.id}>
               <img className="img-fluid" src={song.album.cover_medium} alt="track" />
               <div className="d-flex align-items-center">
                 <Col xs={10}>
-                  <p onClick={() => dispatch(selectSong(song))}>
+                  <p className="text-white text-center" onClick={() => dispatch(selectSong(song))}>
                     Track: {song.title}
                     <br />
                     Artist: {song.artist.name}
@@ -24,6 +25,7 @@ const MyFavourites = () => {
                 </Col>
                 <Col xs={2}>
                   <span
+                    className="text-white"
                     onClick={() => {
                       if (!favouriteSongs.find((favouriteSong) => favouriteSong.id === song.id)) {
                         dispatch(addToFavourites(song));
@@ -32,7 +34,7 @@ const MyFavourites = () => {
                       }
                     }}
                   >
-                    ❤
+                    {favouriteSongs.find((favouriteSong) => favouriteSong.id === song.id) ? <HeartFill /> : <Heart />}
                   </span>
                 </Col>
               </div>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Col, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { addToFavourites, removeFromFavourites, selectSong } from "../redux/actions";
+import { Heart, HeartFill } from "react-bootstrap-icons";
 
 const ArtistSongs = (props) => {
   const favouriteSongs = useSelector((state) => state.favourites.content);
@@ -47,7 +48,7 @@ const ArtistSongs = (props) => {
                     }
                   }}
                 >
-                  ❤
+                  {favouriteSongs.find((favouriteSong) => favouriteSong.id === song.id) ? <HeartFill /> : <Heart />}
                 </span>
               </Col>
             </div>
