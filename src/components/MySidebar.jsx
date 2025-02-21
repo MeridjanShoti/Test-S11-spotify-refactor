@@ -4,6 +4,7 @@ import { BookFill, HouseDoorFill } from "react-bootstrap-icons";
 import { Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { setSearchAction, setSearchedResultsAction } from "../redux/actions";
+import { Link } from "react-router";
 
 const MySidebar = () => {
   const dispatch = useDispatch();
@@ -18,9 +19,9 @@ const MySidebar = () => {
       <aside>
         <Navbar className="navbar-expand-md fixed-left justify-content-between" id="sidebar">
           <Container className="flex-column align-items-start">
-            <a className="navbar-brand" href="index.html">
+            <Link className="navbar-brand" to="/">
               <img src={logoBig} alt="Spotify Logo" width="131" height="40" />
-            </a>
+            </Link>
             <button
               className="navbar-toggler"
               type="button"
@@ -70,12 +71,12 @@ const MySidebar = () => {
             </div>
           </Container>
           <div className="nav-btn">
-            <button className="btn signup-btn" type="button">
+            <Button className="signup-btn" type="button">
               Sign Up
-            </button>
-            <button className="btn login-btn" type="button">
+            </Button>
+            <Button className="btn login-btn" type="button">
               Login
-            </button>
+            </Button>
             <div>
               <a href="#">Cookie Policy</a> |<a href="#"> Privacy</a>
             </div>
