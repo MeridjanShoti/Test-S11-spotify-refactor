@@ -1,6 +1,6 @@
 import { Button, Container, FormControl, FormGroup, Navbar } from "react-bootstrap";
 import logoBig from "../assets/logoBig.png";
-import { BookFill, Heart, HouseDoorFill } from "react-bootstrap-icons";
+import { BookFill, EggFill, HeartFill, HouseDoorFill } from "react-bootstrap-icons";
 import { Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { setSearchAction, setSearchedResultsAction } from "../redux/actions";
@@ -50,8 +50,14 @@ const MySidebar = () => {
                   </li>
                   <li>
                     <Link className="nav-item nav-link d-flex align-items-center" to="/favourites">
-                      <Heart />
+                      <HeartFill />
                       &nbsp; Favourites
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="nav-item nav-link d-flex align-items-center" to="/percorsochenonesiste">
+                      <EggFill />
+                      &nbsp; Click here
                     </Link>
                   </li>
                   <li>
