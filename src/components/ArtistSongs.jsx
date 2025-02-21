@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Col, Spinner } from "react-bootstrap";
-import { useDispatch } from "react-redux";
-import { selectSong, SET_SELECTED_SONG } from "../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { addToFavourites, removeFromFavourites, selectSong } from "../redux/actions";
 
 const ArtistSongs = (props) => {
+  const favouriteSongs = useSelector((state) => state.favourites.content);
   const dispatch = useDispatch();
   const [artist, setArtist] = useState(null);
   const fillMusicSection = async (artistName) => {
@@ -38,7 +39,17 @@ const ArtistSongs = (props) => {
                 </p>
               </Col>
               <Col xs={2}>
-                <span>❤</span>
+                <span
+                  onClick={() => {
+                    if (!favouriteSongs.find((favouriteSong) => favouriteSong.id === song.id)) {
+                      dispatch(addToFavourites(song));
+                    } else {
+                      dispatch(removeFromFavourites(song));
+                    }
+                  }}
+                >
+                  ❤
+                </span>
               </Col>
             </div>
           </div>

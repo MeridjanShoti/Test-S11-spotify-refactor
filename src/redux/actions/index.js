@@ -15,7 +15,7 @@ export const addToFavourites = (el) => {
 };
 export const removeFromFavourites = (el) => {
   return (dispatch) => {
-    dispatch({ type: removeFromFavourites, payload: el });
+    dispatch({ type: REMOVE_FROM_FAVOURITES, payload: el });
   };
 };
 export const selectSong = (song) => {

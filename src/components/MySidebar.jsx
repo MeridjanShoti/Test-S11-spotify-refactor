@@ -1,6 +1,7 @@
 import { Button, Container, FormControl, FormGroup, Navbar, NavbarBrand } from "react-bootstrap";
 import logoBig from "../assets/logoBig.png";
 import { Form } from "react-router";
+import { BookFill, HouseDoorFill } from "react-bootstrap-icons";
 
 const MySidebar = () => {
   return (
@@ -27,12 +28,14 @@ const MySidebar = () => {
                 <ul>
                   <li>
                     <a className="nav-item nav-link d-flex align-items-center" href="#">
-                      <i className="bi bi-house-door-fill"></i>&nbsp; Home
+                      <HouseDoorFill />
+                      &nbsp; Home
                     </a>
                   </li>
                   <li>
                     <a className="nav-item nav-link d-flex align-items-center" href="#">
-                      <i className="bi bi-book-fill"></i>&nbsp; Your Library
+                      <BookFill />
+                      &nbsp; Your Library
                     </a>
                   </li>
                   <li>
