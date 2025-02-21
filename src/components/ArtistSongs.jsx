@@ -24,16 +24,14 @@ const ArtistSongs = (props) => {
     <>
       {artist ? (
         artist.slice(0, 4).map((song) => (
-          <>
-            <div className="col text-center">
-              <img className="img-fluid" src={song.album.cover_medium} alt="track" />
-              <p>
-                Track: {song.title}
-                <br />
-                Artist: {song.artist.name}
-              </p>
-            </div>
-          </>
+          <div className="col text-center" key={song.id}>
+            <img className="img-fluid" src={song.album.cover_medium} alt="track" />
+            <p>
+              Track: {song.title}
+              <br />
+              Artist: {song.artist.name}
+            </p>
+          </div>
         ))
       ) : (
         <Spinner animation="border" variant="primary" />

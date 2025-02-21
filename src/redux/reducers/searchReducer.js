@@ -2,7 +2,7 @@ import { SET_SEARCH } from "../actions";
 const initialState = {
   content: "",
 };
-const searcReducer = (state = initialState, action) => {
+const searchReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_SEARCH:
       return {
@@ -14,4 +14,4 @@ const searcReducer = (state = initialState, action) => {
       return state;
   }
 };
-export default searcReducer;
+export default searchReducer;
