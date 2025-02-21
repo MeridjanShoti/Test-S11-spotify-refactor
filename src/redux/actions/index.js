@@ -18,3 +18,8 @@ export const removeFromFavourites = (el) => {
     dispatch({ type: removeFromFavourites, payload: el });
   };
 };
+export const selectSong = (song) => {
+  return (dispatch) => {
+    dispatch({ type: SET_SELECTED_SONG, payload: song });
+  };
+};
