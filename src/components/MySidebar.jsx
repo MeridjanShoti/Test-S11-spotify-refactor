@@ -10,18 +10,7 @@ const MySidebar = () => {
   const search = useSelector((state) => state.search.content);
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    try {
-      let response = await fetch("https://striveschool-api.herokuapp.com/api/deezer/search?q=" + search);
-      if (response.ok) {
-        let { data } = await response.json();
-        dispatch(setSearchedResultsAction(data.slice(0, 8)));
-      } else {
-        throw new Error("Error in fetching songs");
-      }
-    } catch (err) {
-      console.log("error", err);
-    }
+    dispatch(setSearchedResultsAction(search));
   };
 
   return (

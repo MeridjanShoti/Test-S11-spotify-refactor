@@ -22,8 +22,7 @@ const ArtistSongs = (props) => {
   };
   useEffect(() => {
     fillMusicSection(props.artistName);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [props]);
   return (
     <>
       {artist ? (

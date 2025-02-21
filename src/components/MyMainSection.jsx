@@ -1,6 +1,9 @@
+import { Col, Row } from "react-bootstrap";
 import ArtistSongs from "./ArtistSongs";
+import { useSelector } from "react-redux";
 
 const MyMainsSection = () => {
+  const searchResults = useSelector((state) => state.searchedResults.content);
   return (
     <>
       <main className="col-12 col-md-9 offset-md-3 mainPage">
@@ -13,6 +16,17 @@ const MyMainsSection = () => {
             <a href="#">DISCOVER</a>
           </div>
         </div>
+        {searchResults && (
+          <Row>
+            <Col xs={10}>
+              <h2 className="text-white">RISULTATI RICERCA</h2>
+
+              <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
+                <ArtistSongs artistName={searchResults} />
+              </div>
+            </Col>
+          </Row>
+        )}
         <div className="row">
           <div className="col-10">
             <div id="rock">
