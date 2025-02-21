@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import "./App.css";
 import MyHomePage from "./components/MyHomePage";
 import MyFavourites from "./components/MyFavourites";
+import MyUovoDiPasqua from "./components/MyUovoDiPasqua";
 function App() {
   return (
     <>
@@ -9,7 +10,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MyHomePage />} />
           <Route path="/favourites" element={<MyFavourites />} />
-          <Route path="*" />
+          <Route path="*" element={<MyUovoDiPasqua />} />
         </Routes>
       </BrowserRouter>
     </>
