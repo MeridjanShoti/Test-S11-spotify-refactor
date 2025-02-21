@@ -5,15 +5,17 @@ import next from "../assets/next.png";
 import repeat from "../assets/repeat.png";
 import { useSelector } from "react-redux";
 import musicPlaceholder from "../assets/musicPlaceholder.jpg";
+import { Col, Container, Row } from "react-bootstrap";
+import { Link } from "react-router";
 const MyPlayer = () => {
   const playingSong = useSelector((state) => state.selectedSong.content);
   return (
     <>
-      <div className="container-fluid fixed-bottom bg-container pt-1">
-        <div className="row h-100">
-          <div className="col-lg-10 offset-lg-2">
-            <div className="row h-100 justify-content-start align-items-center">
-              <div className="col-4 d-flex align-items-center justify-content-center gap-5">
+      <Container fluid className="fixed-bottom bg-container pt-1">
+        <Row className="h-100">
+          <Col lg={10} className="offset-lg-2">
+            <Row className="h-100 justify-content-start align-items-center">
+              <Col xs={4} className="d-flex align-items-center justify-content-center gap-5">
                 <img
                   src={playingSong ? playingSong.album.cover : musicPlaceholder}
                   alt={playingSong && playingSong.title}
@@ -23,33 +25,33 @@ const MyPlayer = () => {
                   {playingSong && <p className="text-white">{playingSong.title}</p>}
                   {playingSong && <p className="text-white">{playingSong.artist.name}</p>}
                 </div>
-              </div>
-              <div className="col-6 col-md-4 playerControls">
+              </Col>
+              <Col xs={6} md={4} className="playerControls">
                 <div className="d-flex">
-                  <a href="#">
+                  <Link>
                     <img src={shuffle} alt="shuffle" />
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link>
                     <img src={prev} alt="prev" />
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link>
                     <img src={play} alt="play" />
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link>
                     <img src={next} alt="next" />
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link>
                     <img src={repeat} alt="repeat" />
-                  </a>
+                  </Link>
                 </div>
                 <div className="progress mt-3">
                   <div role="progressbar"></div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 };

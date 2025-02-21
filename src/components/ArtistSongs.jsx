@@ -27,7 +27,7 @@ const ArtistSongs = (props) => {
     <>
       {artist ? (
         artist.slice(0, 4).map((song) => (
-          <div className="col text-center" key={song.id}>
+          <Col className="text-center" key={song.id}>
             <img className="img-fluid" src={song.album.cover_medium} alt="track" />
             <div className="d-flex align-items-center">
               <Col xs={10}>
@@ -51,7 +51,7 @@ const ArtistSongs = (props) => {
                 </span>
               </Col>
             </div>
-          </div>
+          </Col>
         ))
       ) : (
         <Spinner animation="border" variant="primary" />
