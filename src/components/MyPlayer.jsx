@@ -3,7 +3,6 @@ import prev from "../assets/prev.png";
 import play from "../assets/play.png";
 import next from "../assets/next.png";
 import repeat from "../assets/repeat.png";
-import { Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import musicPlaceholder from "../assets/musicPlaceholder.jpg";
 const MyPlayer = () => {

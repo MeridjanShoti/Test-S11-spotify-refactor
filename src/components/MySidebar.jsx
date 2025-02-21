@@ -1,14 +1,33 @@
-import { Button, Container, FormControl, FormGroup, Navbar, NavbarBrand } from "react-bootstrap";
+import { Button, Container, FormControl, FormGroup, Navbar } from "react-bootstrap";
 import logoBig from "../assets/logoBig.png";
-import { Form } from "react-router";
 import { BookFill, HouseDoorFill } from "react-bootstrap-icons";
+import { Form } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { setSearchAction } from "../redux/actions";
+import { useState } from "react";
 
 const MySidebar = () => {
+  const dispatch = useDispatch();
+  const search = useSelector((state) => state.search.content);
+  const handleSubmit = () => {
+    async () => {
+      try {
+        let response = await fetch("https://striveschool-api.herokuapp.com/api/deezer/search?q=" + search);
+        if (response.ok) {
+          let { data } = await response.json();
+        } else {
+          throw new Error("Error in fetching songs");
+        }
+      } catch (err) {
+        console.log("error", err);
+      }
+    };
+  };
   return (
     <>
       <aside>
-        <nav className="navbar navbar-expand-md fixed-left justify-content-between" id="sidebar">
-          <div className="container flex-column align-items-start">
+        <Navbar className="navbar-expand-md fixed-left justify-content-between" id="sidebar">
+          <Container className="flex-column align-items-start">
             <a className="navbar-brand" href="index.html">
               <img src={logoBig} alt="Spotify Logo" width="131" height="40" />
             </a>
@@ -39,17 +58,26 @@ const MySidebar = () => {
                     </a>
                   </li>
                   <li>
-                    <div className="input-group mt-3">
-                      <input type="text" className="form-control" placeholder="Search" aria-label="Search" />
-                      <div className="input-group-append">
-                        <button className="btn btn-outline-secondary btn-sm h-100">GO</button>
-                      </div>
-                    </div>
+                    <Form>
+                      <FormGroup className="input-group mt-3" onSubmit={handleSubmit(search)}>
+                        <FormControl
+                          type="text"
+                          placeholder="Search"
+                          aria-label="Search"
+                          onChange={(e) => dispatch(setSearchAction(e.target))}
+                        />
+                        <div className="input-group-append">
+                          <Button type="submit" className="btn-outline-secondary btn-sm h-100">
+                            GO
+                          </Button>
+                        </div>
+                      </FormGroup>
+                    </Form>
                   </li>
                 </ul>
               </div>
             </div>
-          </div>
+          </Container>
           <div className="nav-btn">
             <button className="btn signup-btn" type="button">
               Sign Up
@@ -61,7 +89,7 @@ const MySidebar = () => {
               <a href="#">Cookie Policy</a> |<a href="#"> Privacy</a>
             </div>
           </div>
-        </nav>
+        </Navbar>
       </aside>
     </>
   );
