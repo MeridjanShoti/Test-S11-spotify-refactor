@@ -4,7 +4,6 @@ import { BookFill, HouseDoorFill } from "react-bootstrap-icons";
 import { Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { setSearchAction, setSearchedResultsAction } from "../redux/actions";
-import { useState } from "react";
 
 const MySidebar = () => {
   const dispatch = useDispatch();
