@@ -58,8 +58,8 @@ const MySidebar = () => {
                     </a>
                   </li>
                   <li>
-                    <Form>
-                      <FormGroup className="input-group mt-3" onSubmit={handleSubmit(search)}>
+                    <Form onSubmit={handleSubmit(search)}>
+                      <FormGroup className="input-group mt-3">
                         <FormControl
                           type="text"
                           placeholder="Search"
