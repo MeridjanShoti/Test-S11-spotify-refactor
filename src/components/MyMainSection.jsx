@@ -20,11 +20,11 @@ const MyMainsSection = () => {
         {searchResults && (
           <Row>
             <Col xs={10}>
-              <h2 className="text-white">RISULTATI RICERCA</h2>
+              <h2 className="text-white pt-4">RISULTATI RICERCA</h2>
 
-              <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
+              <Row xs={1} sm={2} lg={3} xl={4} className="imgLinks py-3">
                 <ArtistSongs artistName={searchResults} />
-              </div>
+              </Row>
             </Col>
           </Row>
         )}
