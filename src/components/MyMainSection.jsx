@@ -7,16 +7,16 @@ const MyMainsSection = () => {
   const searchResults = useSelector((state) => state.searchedResults.content);
   return (
     <>
-      <main className="col-12 col-md-9 offset-md-3 mainPage">
-        <div className="row">
-          <div className="col-9 col-lg-11 mainLinks d-none d-md-flex">
+      <Col xs={12} md={9} className="offset-md-3 mainPage">
+        <Row>
+          <Col xs={9} lg={11} className="mainLinks d-none d-md-flex">
             <Link to="/">TRENDING</Link>
             <Link to="/">PODCAST</Link>
             <Link to="/">MOODS AND GENRES</Link>
             <Link to="/">NEW RELEASES</Link>
             <Link to="/">DISCOVER</Link>
-          </div>
-        </div>
+          </Col>
+        </Row>
         {searchResults && (
           <Row>
             <Col xs={10}>
@@ -58,7 +58,7 @@ const MyMainsSection = () => {
             </div>
           </Col>
         </Row>
-      </main>
+      </Col>
     </>
   );
 };
